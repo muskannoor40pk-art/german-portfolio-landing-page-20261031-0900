@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Senior Softwareentwickler</title>
+    
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="container">
+    <div style="font-weight: bold; font-size: 1.5rem;">DevPortfolio</div>
+    <nav>
+        <a href="#projekte" style="margin-left: 1rem; text-decoration: none; color: inherit;">Projekte</a>
+        <a href="#kontakt" style="margin-left: 1rem; text-decoration: none; color: inherit;">Kontakt</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h1>Hallo, ich bin Max.</h1>
+        <p style="font-size: 1.25rem; color: #64748b;">Senior Full-Stack Entwickler mit Fokus auf skalierbare Webanwendungen.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Kompetenzen</h2>
+        <div class="grid">
+            <div class="card"><h3>Frontend</h3><p>React, TypeScript, Tailwind CSS</p></div>
+            <div class="card"><h3>Backend</h3><p>Node.js, Go, PostgreSQL</p></div>
+            <div class="card"><h3>Cloud</h3><p>AWS, Docker, Kubernetes</p></div>
+        </div>
+    </section>
+
+    <section id="projekte">
+        <h2>Ausgewählte Projekte</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>E-Commerce Plattform</h3>
+                <p>Skalierbare Shop-Lösung mit Echtzeit-Inventarverwaltung.</p>
+            </article>
+            <article class="card">
+                <h3>Finanz-Dashboard</h3>
+                <p>Visualisierung komplexer Datenströme für DAX-Unternehmen.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <h2>Kontakt aufnehmen</h2>
+        <form id="contactForm" style="max-width: 600px; margin: 0 auto;">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                <div class="error" id="nameError">Bitte geben Sie Ihren Namen ein.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" required>
+                <div class="error" id="emailError">Bitte geben Sie eine gültige E-Mail an.</div>
+            </div>
+            <div class="form-group">
+                <label for="message">Nachricht</label>
+                <textarea id="message" rows="5" required></textarea>
+                <div class="error" id="messageError">Nachricht darf nicht leer sein.</div>
+            </div>
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
+</main>
+
+<footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border);">
+    &copy; 2023 Max Mustermann. Alle Rechte vorbehalten.
+</footer>
+
+<script>
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        const fields = ['name', 'email', 'message'];
+        fields.forEach(field => {
+            const el = document.getElementById(field);
+            const err = document.getElementById(field + 'Error');
+            if (!el.value.trim()) {
+                err.style.display = 'block';
+                isValid = false;
+            } else {
+                err.style.display = 'none';
+            }
+        });
+
+        if (isValid) {
+            alert('Vielen Dank für Ihre Nachricht! Ich melde mich in Kürze.');
+            form.reset();
+        }
+    });
+</script>
+
+</body>
+</html>
